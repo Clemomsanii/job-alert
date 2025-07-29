@@ -1,6 +1,7 @@
 name: Weekly Job Alert
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '0 9 * * 1'  # every Monday at 9 AM UTC
 
@@ -24,7 +25,3 @@ jobs:
         env:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
         run: python main.py
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: '0 9 * * 1'  # every Monday at 9 AM UTC
