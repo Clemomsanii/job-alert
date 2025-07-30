@@ -1,12 +1,21 @@
 # main.py
 
-from sites import job_sites
+from config import EMAIL_RECEIVER
+from utils.notifier import send_email
 
-def check_jobs():
-    for site in job_sites:
-        print(f"🔍 Checking for jobs at {site['name']} ({site['url']})...")
-        # In future: Add real scraping logic here
-        print(f"✅ Done checking {site['name']}.\n")
+# Dummy jobs to simulate matches
+dummy_jobs = [
+    {
+        "title": "Python Developer",
+        "link": "https://example.com/job/python-dev",
+        "location": "Nairobi"
+    },
+    {
+        "title": "Data Analyst",
+        "link": "https://example.com/job/data-analyst",
+        "location": "Remote"
+    }
+]
 
 if __name__ == "__main__":
-    check_jobs()
+    send_email(dummy_jobs, EMAIL_RECEIVER)
